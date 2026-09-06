@@ -1,0 +1,15 @@
+# HTTPS y proxy inverso para la boda de Alejandro y Ana.
+# DOMAIN se define en .env.production y debe apuntar a este servidor.
+
+{$DOMAIN} {
+	encode zstd gzip
+	reverse_proxy app:3000
+
+	header {
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "SAMEORIGIN"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		Permissions-Policy "camera=(self), microphone=(), geolocation=()"
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+	}
+}

@@ -1,0 +1,4 @@
+services:
+  app:
+    ports:
+      - "127.0.0.1:${APP_BIND_PORT:-4180}:3000"

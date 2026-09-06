@@ -1,0 +1,42 @@
+export const EVENT_CONFIG = {
+  name: "Boda de Alejandro Valencia y Ana Usma",
+  shortName: "Alejandro & Ana",
+  slogan: "Unidos bajo la gracia de Dios",
+  biblicalReference: "Marcos 10:9",
+  startDate: "2026-10-10T14:30:00-05:00",
+  endDate: "2026-10-10T23:59:00-05:00",
+  displayDate: "10 de octubre de 2026",
+  venue: "Iglesia Cruzada Cristiana",
+  address: "Barrio San Francisco",
+  addressLine1: "Iglesia Cruzada Cristiana, Barrio San Francisco",
+  addressLine2: "Mocoa, Putumayo, Colombia",
+  city: "Mocoa, Putumayo",
+  capacity: process.env.EVENT_CAPACITY ? Number(process.env.EVENT_CAPACITY) : null,
+  mapsUrl: process.env.MAPS_URL ?? "https://www.google.com/maps/search/?api=1&query=Iglesia%20Cruzada%20Cristiana%2C%20Barrio%20San%20Francisco%2C%20Mocoa%2C%20Putumayo",
+  whatsappUrl: process.env.WHATSAPP_URL ?? "https://wa.me/573209107554?text=Hola%20Alejandro%20y%20Ana",
+  organizerWhatsapp: "573209107554",
+  wallpaper: "/wedding/hero-mobile.webp",
+  poster: "/wedding/scene-ceremony.webp",
+} as const;
+
+export const EVENT_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  name: EVENT_CONFIG.name,
+  startDate: EVENT_CONFIG.startDate,
+  endDate: EVENT_CONFIG.endDate,
+  eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+  eventStatus: "https://schema.org/EventScheduled",
+  location: {
+    "@type": "Place",
+    name: EVENT_CONFIG.venue,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Mocoa",
+      addressRegion: "Putumayo",
+      addressCountry: "CO",
+    },
+  },
+  image: [EVENT_CONFIG.wallpaper, EVENT_CONFIG.poster],
+  description: "Invitación a la boda de Alejandro Valencia y Ana Usma, el 10 de octubre de 2026 en Mocoa, Putumayo.",
+};

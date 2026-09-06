@@ -1,0 +1,88 @@
+# Boda de Alejandro Valencia y Ana Usma - producción
+#
+# 1. Copia .env.production.example como .env.production y completa los secretos.
+# 2. Valida: docker compose --env-file .env.production config
+# 3. Despliega: docker compose --env-file .env.production up -d --build
+
+x-logging: &default-logging
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "3"
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: cumbre-impacto-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: cumbre_impacto
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?Define DB_PASSWORD en .env.production}
+      POSTGRES_DB: cumbre_impacto
+    volumes:
+      - cumbre_impacto_pgdata:/var/lib/postgresql/data
+    networks:
+      - cumbre-impacto-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cumbre_impacto -d cumbre_impacto"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+    logging: *default-logging
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cumbre-impacto-app
+    restart: unless-stopped
+    init: true
+    env_file:
+      - path: .env.production
+        required: true
+    environment:
+      DATABASE_URL: postgresql://cumbre_impacto:${DB_PASSWORD}@db:5432/cumbre_impacto?schema=public
+      DB_HOST: db
+      DB_PORT: "5432"
+      DB_USER: cumbre_impacto
+      DB_NAME: cumbre_impacto
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - cumbre-impacto-network
+    security_opt:
+      - no-new-privileges:true
+    logging: *default-logging
+
+  caddy:
+    image: caddy:2-alpine
+    container_name: cumbre-impacto-caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      DOMAIN: ${DOMAIN:?Define DOMAIN en .env.production}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - cumbre_impacto_caddy_data:/data
+      - cumbre_impacto_caddy_config:/config
+    networks:
+      - cumbre-impacto-network
+    depends_on:
+      app:
+        condition: service_healthy
+    security_opt:
+      - no-new-privileges:true
+    logging: *default-logging
+
+volumes:
+  cumbre_impacto_pgdata:
+  cumbre_impacto_caddy_data:
+  cumbre_impacto_caddy_config:
+
+networks:
+  cumbre-impacto-network:
+    driver: bridge
