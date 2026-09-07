@@ -9,14 +9,14 @@ export async function GET() {
 
     return NextResponse.json({
       status: "ok",
-      service: "boda-alejandro-ana",
+      service: "boda-jans-yurleydi",
       database: "ok",
     });
   } catch {
     return NextResponse.json(
       {
         status: "error",
-        service: "boda-alejandro-ana",
+        service: "boda-jans-yurleydi",
         database: "unavailable",
       },
       { status: 503 }

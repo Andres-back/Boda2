@@ -5,7 +5,7 @@ import { CambiarContrasenaForm } from "./cambiar-form";
 import { KeyRound } from "lucide-react";
 
 export const metadata = {
-  title: "Cambiar contraseña | Alejandro & Ana",
+  title: "Cambiar contraseña | Jans & Yurleydi",
 };
 
 export default async function CambiarContrasenaPage() {

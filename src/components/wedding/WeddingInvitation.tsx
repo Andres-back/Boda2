@@ -48,15 +48,15 @@ const chapters = [
 ];
 
 const gallery = [
-  { src: "/wedding/gallery-heart.webp", alt: "Alejandro y Ana formando un corazón con sus manos" },
-  { src: "/wedding/story-river.jpg", alt: "Alejandro y Ana compartiendo un día junto al río" },
-  { src: "/wedding/story-plaza.jpg", alt: "Alejandro y Ana recordando un viaje en la plaza" },
-  { src: "/wedding/story-flowers.jpg", alt: "Alejandro y Ana celebrando con un ramo de flores" },
-  { src: "/wedding/story-lake.jpeg", alt: "Alejandro y Ana contemplando juntos el lago" },
-  { src: "/wedding/story-trip.jpeg", alt: "Alejandro y Ana guardando recuerdos de sus viajes" },
-  { src: "/wedding/story-outdoor.jpeg", alt: "Alejandro y Ana en un retrato al aire libre" },
-  { src: "/wedding/gallery-back.webp", alt: "Alejandro y Ana contemplando el paisaje" },
-  { src: "/wedding/photo-portrait-bw.webp", alt: "Retrato en blanco y negro de la pareja" },
+  { src: "/wedding/gallery-01.jpeg", alt: "Jans y Yurleydi compartiendo una tarde juntos" },
+  { src: "/wedding/gallery-02.jpeg", alt: "Jans y Yurleydi disfrutando de uno de sus viajes" },
+  { src: "/wedding/gallery-03.jpeg", alt: "Jans y Yurleydi cocinando y sonriendo juntos" },
+  { src: "/wedding/gallery-04.jpeg", alt: "Jans y Yurleydi en un paseo rodeados de naturaleza" },
+  { src: "/wedding/gallery-05.jpeg", alt: "Jans y Yurleydi guardando un recuerdo especial" },
+  { src: "/wedding/gallery-06.jpeg", alt: "Jans y Yurleydi compartiendo un momento divertido" },
+  { src: "/wedding/gallery-07.jpeg", alt: "Jans y Yurleydi celebrando juntos" },
+  { src: "/wedding/gallery-08.jpeg", alt: "Retrato de Jans y Yurleydi" },
+  { src: "/wedding/gallery-09.jpeg", alt: "Jans y Yurleydi celebrando el año de su boda" },
 ];
 
 function getCountdown(fecha: string): Countdown {
@@ -222,14 +222,14 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
 
       <div className={`${styles.entrance} ${opened ? styles.entranceHidden : ""}`} aria-hidden={opened}>
         <div className={styles.entranceCard}>
-          <Image className={`${styles.entranceDecor} ${styles.entranceFloral}`} src="/wedding/botanical-spray.webp" alt="" width={440} height={440} priority />
-          <Image className={`${styles.entranceDecor} ${styles.entranceRings}`} src="/wedding/decor-rings.webp" alt="" width={320} height={320} />
-          <div className={styles.seal}>A <span>&</span> A</div>
+          <Image className={`${styles.entranceDecor} ${styles.entranceFloral}`} src="/wedding/generated-botanical.png" alt="" width={440} height={440} priority loading="eager" />
+          <Image className={`${styles.entranceDecor} ${styles.entranceRings}`} src="/wedding/generated-rings.png" alt="" width={480} height={320} />
+          <div className={styles.seal}>J <span>&</span> Y</div>
           <p className={styles.entranceLabel}>Con la bendición de Dios</p>
           <h1>
-            <span>Alejandro <small>Valencia</small></span>
+            <span>Jans <small>Narvaez</small></span>
             <i>&</i>
-            <span>Ana <small>Usma</small></span>
+            <span>Yurleydi <small>Solarte</small></span>
           </h1>
           <p className={styles.entranceMessage}>
             <strong>¡Queremos vivir este momento contigo!</strong> Dios cruzó nuestros caminos y hoy iniciamos una nueva etapa. Tu presencia hará que este inicio sea muy especial.
@@ -242,7 +242,7 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
       </div>
 
       <nav ref={navRef} className={`${styles.nav} ${scrolled ? styles.navScrolled : ""}`} aria-label="Navegación principal">
-        <a className={styles.navBrand} href="#inicio" onClick={closeMenu}>A <span>&</span> A</a>
+        <a className={styles.navBrand} href="#inicio" onClick={closeMenu}>J <span>&</span> Y</a>
         <div className={styles.desktopLinks}>
           <a href="#historia">Nuestra historia</a>
           <a href="#momentos">Momentos</a>
@@ -267,7 +267,7 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
         ref={musicFrame}
         className={styles.musicFrame}
         src={`https://www.youtube-nocookie.com/embed/${WEDDING_SONG_ID}?enablejsapi=1&autoplay=0&controls=0&loop=1&playlist=${WEDDING_SONG_ID}&playsinline=1&rel=0`}
-        title="Canción de Alejandro y Ana"
+        title="Canción de Jans y Yurleydi"
         allow="autoplay; encrypted-media"
         referrerPolicy="strict-origin-when-cross-origin"
         onLoad={() => {
@@ -297,13 +297,13 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
           <div className={styles.heroMedia} />
           <div className={styles.heroShade} />
           <div className={styles.heroFrame} />
-          <Image className={styles.heroGarland} src="/wedding/decor-garland.webp" alt="" width={1300} height={520} priority />
+          <Image className={styles.heroGarland} src="/wedding/generated-garland.png" alt="" width={1500} height={500} priority />
           <div className={styles.heroContent}>
             <p data-hero-line className={styles.heroKicker}>Nuestra boda · Con la bendición de Dios</p>
             <h2 data-hero-line className={styles.heroNames}>
-              Alejandro <small>Valencia</small>
+              Jans <small>Narvaez</small>
               <i>&</i>
-              Ana <small>Usma</small>
+              Yurleydi <small>Solarte</small>
             </h2>
             <p data-hero-line className={styles.heroDate}>{details.date}</p>
             <p data-hero-line className={styles.heroQuote}>“Lo que Dios ha unido, que no lo separe el hombre.” <strong>Marcos 10:9</strong></p>
@@ -324,7 +324,7 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
         </section>
 
         <section id="fecha" className={styles.countdownSection} data-chapter>
-          <div className={styles.dateMonogram} aria-hidden>A & A</div>
+          <div className={styles.dateMonogram} aria-hidden>J & Y</div>
           <div className={styles.container}>
             <header className={styles.sectionHeading} data-reveal>
               <p className={styles.eyebrow}>Guarda la fecha</p>
@@ -352,8 +352,8 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
             <div className={styles.scheduleGrid}>
               <article className={styles.eventCard} data-reveal>
                 <div className={styles.eventImage}>
-                  <Image className={styles.eventImageBackdrop} src="/wedding/scene-ceremony.webp" alt="" fill sizes="(max-width: 800px) 100vw, 50vw" aria-hidden />
-                  <Image className={styles.eventImageMain} src="/wedding/scene-ceremony.webp" alt="Alejandro y Ana durante su ceremonia" fill sizes="(max-width: 800px) 100vw, 50vw" />
+                  <Image className={styles.eventImageBackdrop} src="/wedding/jans-yurleydi-ceremony.jpeg" alt="" fill sizes="(max-width: 800px) 100vw, 50vw" aria-hidden />
+                  <Image className={styles.eventImageMain} src="/wedding/jans-yurleydi-ceremony.jpeg" alt="Jans y Yurleydi juntos" fill sizes="(max-width: 800px) 100vw, 50vw" />
                 </div>
                 <div className={styles.eventBody}>
                   <span className={styles.eventNumber}>01</span><Church size={24} strokeWidth={1.3} />
@@ -364,14 +364,14 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
               </article>
               <article className={styles.eventCard} data-reveal>
                 <div className={styles.eventImage}>
-                  <Image className={styles.eventImageBackdrop} src="/wedding/scene-reception.webp" alt="" fill sizes="(max-width: 800px) 100vw, 50vw" aria-hidden />
-                  <Image className={styles.eventImageMain} src="/wedding/scene-reception.webp" alt="Alejandro y Ana compartiendo un momento juntos" fill sizes="(max-width: 800px) 100vw, 50vw" />
+                  <Image className={styles.eventImageBackdrop} src="/wedding/jans-yurleydi-reception.jpeg" alt="" fill sizes="(max-width: 800px) 100vw, 50vw" aria-hidden />
+                  <Image className={styles.eventImageMain} src="/wedding/jans-yurleydi-reception.jpeg" alt="Jans y Yurleydi celebrando su compromiso" fill sizes="(max-width: 800px) 100vw, 50vw" />
                 </div>
                 <div className={styles.eventBody}>
                   <span className={styles.eventNumber}>02</span><Heart size={24} strokeWidth={1.3} />
                   <p className={styles.eyebrow}>Recepción</p><h3>Compartamos este momento</h3>
                   <p>Después de la ceremonia, celebremos juntos la fidelidad y la bondad de Dios.</p>
-                  <div className={styles.eventMeta}><span><Clock3 />{details.receptionTime}</span><span><MapPin />{details.location}</span></div>
+                  <div className={styles.eventMeta}><span><Clock3 />Al finalizar la ceremonia</span><span><MapPin />{details.location}</span></div>
                 </div>
               </article>
             </div>
@@ -380,13 +380,13 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
         </section>
 
         <section id="historia" className={styles.story} data-chapter>
-          <div className={styles.storyImage}><Image src="/wedding/photo-walk.webp" alt="Alejandro y Ana caminando juntos" fill sizes="(max-width: 900px) 100vw, 55vw" /></div>
+          <div className={styles.storyImage}><Image src="/wedding/jans-yurleydi-story.jpeg" alt="Jans y Yurleydi compartiendo un momento especial" fill sizes="(max-width: 900px) 100vw, 55vw" /></div>
           <div className={styles.storyCopy} data-reveal>
             <p className={styles.eyebrow}>Nuestra historia</p>
             <h2 className={styles.sectionTitle}>Dios nos encontró <em>en el camino</em></h2>
             <p>Entre conversaciones, oraciones y sueños compartidos, descubrimos que el amor también es elegir caminar juntos cada día.</p>
             <p>Hoy, con Cristo en el centro de nuestro hogar, damos el sí a una vida de fe, servicio y compañía.</p>
-            <div className={styles.signature}>Alejandro & Ana</div>
+            <div className={styles.signature}>Jans & Yurleydi</div>
           </div>
         </section>
 
@@ -420,14 +420,14 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
         </section>
 
         <section id="confirmar" className={styles.rsvp} data-chapter>
-          <Image className={styles.rsvpFloral} src="/wedding/botanical-spray.webp" alt="" width={520} height={520} />
+          <Image className={styles.rsvpFloral} src="/wedding/generated-botanical.png" alt="" width={520} height={520} />
           <div className={styles.rsvpCard} data-reveal>
             <MessageCircleHeart size={28} strokeWidth={1.25} />
             <p className={styles.eyebrow}>Nos encantará contar contigo</p>
             <h2 className={styles.sectionTitle}>Confirma tu <em>asistencia</em></h2>
             <p>Ayúdanos a preparar cada lugar con amor. Podrás registrar a las personas que te acompañarán y consultar después tu mesa y acceso.</p>
             {!isAdmin && <Link className={styles.primaryButton} href={ctaHref}>{ctaLabel}</Link>}
-            <p className={styles.rsvpHelp}>Para compartir fotos o resolver dudas, <a href={details.whatsappUrl} target="_blank" rel="noreferrer">escríbenos al {details.phoneDisplay}</a>.</p>
+            <p className={styles.rsvpHelp}>Si tienes alguna duda, comunícate directamente con los novios.</p>
           </div>
         </section>
 
@@ -442,8 +442,8 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
       </main>
 
       <footer className={styles.footer}>
-        <p className={styles.footerMonogram}>A <span>&</span> A</p>
-        <p>Alejandro Valencia & Ana Usma</p>
+        <p className={styles.footerMonogram}>J <span>&</span> Y</p>
+        <p>Jans Narvaez & Yurleydi Solarte</p>
         <small>{details.date} · {details.fullLocation}</small>
         <blockquote>“Y sobre todas estas cosas vestíos de amor.” <cite>Colosenses 3:14</cite></blockquote>
       </footer>

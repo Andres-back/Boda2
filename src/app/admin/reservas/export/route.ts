@@ -24,6 +24,6 @@ export async function GET() {
   }
   const content = `\uFEFF${rows.map((row) => row.map(csv).join(",")).join("\r\n")}`;
   return new NextResponse(content, {
-    headers: { "content-type": "text/csv; charset=utf-8", "content-disposition": "attachment; filename=invitados-boda-alejandro-ana.csv" },
+    headers: { "content-type": "text/csv; charset=utf-8", "content-disposition": "attachment; filename=invitados-boda-jans-yurleydi.csv" },
   });
 }

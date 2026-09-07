@@ -1,36 +1,36 @@
 @import "tailwindcss";
 
 @theme {
-  --color-taller-night: #405247;
-  --color-taller-steel: #657267;
-  --color-taller-iron: #879285;
-  --color-taller-shadow: #2b3830;
-  --color-ember-rust: #efb9c5;
-  --color-ember-bright: #f2d46f;
-  --color-ember-deep: #9a6c12;
-  --color-ember-glow: #fff0b5;
-  --color-bone: #fae3e8;
-  --color-cream: #fffaf1;
-  --color-ash: #ead4dc;
-  --color-smoke: #748177;
-  --color-cumbre-mist: #fae3e8;
-  --color-signal-green: #7f8a78;
-  --color-signal-rust: #c7788e;
-  --color-signal-steel: #f2d46f;
+  --color-taller-night: #432955;
+  --color-taller-steel: #604176;
+  --color-taller-iron: #806096;
+  --color-taller-shadow: #291833;
+  --color-ember-rust: #b887cf;
+  --color-ember-bright: #d9b9e9;
+  --color-ember-deep: #71468c;
+  --color-ember-glow: #eeddf7;
+  --color-bone: #eadff0;
+  --color-cream: #fcf9ff;
+  --color-ash: #d6c5df;
+  --color-smoke: #826f8d;
+  --color-cumbre-mist: #eee3f4;
+  --color-signal-green: #88759a;
+  --color-signal-rust: #a969bd;
+  --color-signal-steel: #d9b9e9;
   --font-display: var(--font-cormorant);
   --font-subhead: var(--font-dm-sans);
   --font-body: var(--font-dm-sans);
   --font-mono: var(--font-special-elite);
-  --shadow-plate: 0 2px 10px rgba(239, 185, 197, 0.22);
-  --shadow-card: 0 12px 34px rgba(75, 49, 66, 0.28);
-  --shadow-modal: 0 24px 64px rgba(51, 35, 47, 0.7);
-  --shadow-ember: 0 0 28px rgba(242, 212, 111, 0.3);
+  --shadow-plate: 0 2px 10px rgba(184, 135, 207, 0.22);
+  --shadow-card: 0 12px 34px rgba(67, 41, 85, 0.28);
+  --shadow-modal: 0 24px 64px rgba(41, 24, 51, 0.72);
+  --shadow-ember: 0 0 28px rgba(217, 185, 233, 0.3);
 }
 
 @layer base {
   html, body {
-    background-color: #405247;
-    color: #fae3e8;
+    background-color: #432955;
+    color: #eadff0;
     font-family: var(--font-dm-sans), sans-serif;
   }
 }

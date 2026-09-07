@@ -261,9 +261,9 @@ model Configuracion {
   id String @id @default("singleton")
 
   // Datos del evento
-  nombre           String   @default("Boda de Alejandro Valencia y Ana Usma")
+  nombre           String   @default("Boda de Jans Narvaez y Yurleydi Solarte")
   fecha            DateTime // fecha y hora del evento
-  horaRecepcion    String   @default("18:30")
+  horaRecepcion    String   @default("19:30")
   puertas          String // hora de apertura de puertas (texto libre, ej "5:45 pm")
   lugar            String // nombre del lugar
   barrio           String? // barrio/direccion adicional
@@ -272,10 +272,10 @@ model Configuracion {
   precioPorPersona Int      @default(0) // invitación sin cobro
 
   // Contacto del organizador
-  organizadorNombre   String @default("Alejandro y Ana")
+  organizadorNombre   String @default("Jans y Yurleydi")
   organizadorEmail    String @default("")
-  organizadorTelefono String @default("+573209107554") // E.164
-  organizadorWhatsapp String @default("573209107554") // sin +, para wa.me/
+  organizadorTelefono String @default("+573000000000") // E.164; reemplazar con el contacto real
+  organizadorWhatsapp String @default("573000000000") // sin +, para wa.me/
 
   // Metadata
   actualizadoEn    DateTime @updatedAt

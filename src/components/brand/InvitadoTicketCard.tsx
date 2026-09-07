@@ -28,7 +28,7 @@ export function InvitadoTicketCard({ numero, nombreCompleto, telefono, codigo, r
 
   useEffect(() => {
     if (!codigo) return;
-    QRCode.toDataURL(codigo, { errorCorrectionLevel: "M", margin: 1, width: 360, color: { dark: "#403735", light: "#fffdf9" } })
+    QRCode.toDataURL(codigo, { errorCorrectionLevel: "M", margin: 1, width: 360, color: { dark: "#3f2d4b", light: "#fffafe" } })
       .then(setQr)
       .catch(() => setError("No pudimos mostrar el QR."));
   }, [codigo]);
@@ -46,29 +46,29 @@ export function InvitadoTicketCard({ numero, nombreCompleto, telefono, codigo, r
   };
 
   return (
-    <article className="overflow-hidden rounded-[26px] border border-[#7b625d]/15 bg-[#fffdf9] text-[#4b403d] shadow-[0_20px_55px_rgba(80,59,54,.12)]">
-      <div className="h-2 bg-[linear-gradient(90deg,#efbfbb,#f4d36f,#aab09f)]" />
+    <article className="overflow-hidden rounded-[26px] border border-[#725784]/15 bg-[#fffafe] text-[#44334f] shadow-[0_20px_55px_rgba(71,43,88,.12)]">
+      <div className="h-2 bg-[linear-gradient(90deg,#d8b9e8,#d9b9e9,#c6b6d0)]" />
       <div className="p-5 sm:p-6">
         <div className="flex items-start justify-between gap-3">
-          <div><p className="text-[9px] font-bold uppercase tracking-[.25em] text-[#a97718]">Invitado {String(numero).padStart(2, "0")}</p><h3 className="mt-1 font-display text-3xl leading-none text-[#403735]">{nombreCompleto}</h3><p className="mt-2 text-xs text-[#7e716d]">{formatLocal(telefono)}</p></div>
-          <span className={`grid h-10 w-10 shrink-0 place-items-center rounded-full ${asistio ? "bg-[#aab09f]/25 text-[#61705c]" : "bg-[#f4dada] text-[#b9726f]"}`}>{asistio ? <Check className="h-5 w-5" /> : <span className="font-display text-xl">A&A</span>}</span>
+          <div><p className="text-[9px] font-bold uppercase tracking-[.25em] text-[#7b52a0]">Invitado {String(numero).padStart(2, "0")}</p><h3 className="mt-1 font-display text-3xl leading-none text-[#3f2d4b]">{nombreCompleto}</h3><p className="mt-2 text-xs text-[#75667d]">{formatLocal(telefono)}</p></div>
+          <span className={`grid h-10 w-10 shrink-0 place-items-center rounded-full ${asistio ? "bg-[#c6b6d0]/25 text-[#6f5a7f]" : "bg-[#eee1f6] text-[#9a68b3]"}`}>{asistio ? <Check className="h-5 w-5" /> : <span className="font-display text-xl">J&Y</span>}</span>
         </div>
 
         <div className="mt-5 grid items-center gap-5 sm:grid-cols-[170px_1fr]">
-          <div className="mx-auto grid aspect-square w-full max-w-[190px] place-items-center rounded-2xl border border-[#7b625d]/15 bg-white p-3">
-            {qr ? <img src={qr} alt={`Código QR de ${nombreCompleto}`} className="h-full w-full" /> : <LoaderCircle className="h-7 w-7 animate-spin text-[#b9726f]" />}
+          <div className="mx-auto grid aspect-square w-full max-w-[190px] place-items-center rounded-2xl border border-[#725784]/15 bg-white p-3">
+            {qr ? <img src={qr} alt={`Código QR de ${nombreCompleto}`} className="h-full w-full" /> : <LoaderCircle className="h-7 w-7 animate-spin text-[#9a68b3]" />}
           </div>
           <div>
-            <p className="text-[9px] font-bold uppercase tracking-[.22em] text-[#7e716d]">Código de acceso</p>
-            <p className="mt-1 break-all font-mono text-lg tracking-[.14em] text-[#7b625d]">{codigo ?? "Pendiente"}</p>
-            <div className="mt-4 rounded-2xl bg-[#eef0e8]/65 p-4">
-              {mesaNumero && silla ? <p className="flex items-center gap-2 text-sm font-semibold text-[#5f4d49]"><Armchair className="h-4 w-4" />Mesa {mesaNumero} · Silla {silla}</p> : <p className="flex items-center gap-2 text-sm text-[#7e716d]"><Armchair className="h-4 w-4" />Mesa por asignar</p>}
-              {asistio && registradoEn && <p className="mt-2 text-xs text-[#61705c]">Ingreso registrado a las {new Date(registradoEn).toLocaleTimeString("es-CO", { hour: "numeric", minute: "2-digit" })}</p>}
+            <p className="text-[9px] font-bold uppercase tracking-[.22em] text-[#75667d]">Código de acceso</p>
+            <p className="mt-1 break-all font-mono text-lg tracking-[.14em] text-[#725784]">{codigo ?? "Pendiente"}</p>
+            <div className="mt-4 rounded-2xl bg-[#f1ebf5]/65 p-4">
+              {mesaNumero && silla ? <p className="flex items-center gap-2 text-sm font-semibold text-[#5b3f6d]"><Armchair className="h-4 w-4" />Mesa {mesaNumero} · Silla {silla}</p> : <p className="flex items-center gap-2 text-sm text-[#75667d]"><Armchair className="h-4 w-4" />Mesa por asignar</p>}
+              {asistio && registradoEn && <p className="mt-2 text-xs text-[#6f5a7f]">Ingreso registrado a las {new Date(registradoEn).toLocaleTimeString("es-CO", { hour: "numeric", minute: "2-digit" })}</p>}
             </div>
           </div>
         </div>
 
-        <button type="button" onClick={download} disabled={pending || !codigo} className="mt-5 flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-[#7b625d]/25 text-[10px] font-bold uppercase tracking-[.16em] text-[#5f4d49] transition hover:bg-[#5f4d49] hover:text-white disabled:opacity-50">
+        <button type="button" onClick={download} disabled={pending || !codigo} className="mt-5 flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-[#725784]/25 text-[10px] font-bold uppercase tracking-[.16em] text-[#5b3f6d] transition hover:bg-[#5b3f6d] hover:text-white disabled:opacity-50">
           {pending ? <LoaderCircle className="h-4 w-4 animate-spin" /> : <Download className="h-4 w-4" />}{pending ? "Generando pase" : "Descargar pase"}
         </button>
         {error && <p className="mt-3 text-center text-xs text-[#a44949]">{error}</p>}
@@ -92,29 +92,29 @@ async function descargarPase({ numero, nombreCompleto, telefono, codigo, mesaNum
   if (!context) throw new Error("No pudimos preparar el pase.");
 
   const gradient = context.createLinearGradient(0, 0, width, height);
-  gradient.addColorStop(0, "#fffdf9");
-  gradient.addColorStop(0.7, "#fff9ee");
-  gradient.addColorStop(1, "#f4dada");
+  gradient.addColorStop(0, "#fffafe");
+  gradient.addColorStop(0.7, "#f8f1fc");
+  gradient.addColorStop(1, "#eee1f6");
   context.fillStyle = gradient;
   context.fillRect(0, 0, width, height);
-  context.strokeStyle = "#aab09f";
+  context.strokeStyle = "#c6b6d0";
   context.lineWidth = 2;
   context.strokeRect(28, 28, width - 56, height - 56);
-  context.strokeStyle = "rgba(123,98,93,.22)";
+  context.strokeStyle = "rgba(114,87,132,.22)";
   context.strokeRect(42, 42, width - 84, height - 84);
 
   context.textAlign = "center";
-  context.fillStyle = "#a97718";
+  context.fillStyle = "#7b52a0";
   context.font = "italic 34px Georgia, serif";
-  context.fillText("A  &  A", width / 2, 105);
-  context.fillStyle = "#403735";
+  context.fillText("J  &  Y", width / 2, 105);
+  context.fillStyle = "#3f2d4b";
   context.font = "52px Georgia, serif";
-  context.fillText("Alejandro & Ana", width / 2, 170);
-  context.fillStyle = "#7e716d";
+  context.fillText("Jans & Yurleydi", width / 2, 170);
+  context.fillStyle = "#75667d";
   context.font = "bold 15px Arial, sans-serif";
-  context.fillText("10 DE OCTUBRE DE 2026 · MOCOA, PUTUMAYO", width / 2, 210);
+  context.fillText("11 DE OCTUBRE DE 2026 · 6:00 P. M. · MOCOA", width / 2, 210);
 
-  context.fillStyle = "#b9726f";
+  context.fillStyle = "#9a68b3";
   context.font = "bold 15px Arial, sans-serif";
   context.fillText(`INVITADO ${String(numero).padStart(2, "0")}`, width / 2, 280);
   let fontSize = 46;
@@ -123,22 +123,22 @@ async function descargarPase({ numero, nombreCompleto, telefono, codigo, mesaNum
     fontSize -= 2;
     context.font = `${fontSize}px Georgia, serif`;
   }
-  context.fillStyle = "#403735";
+  context.fillStyle = "#3f2d4b";
   context.fillText(nombreCompleto, width / 2, 340);
-  context.fillStyle = "#7e716d";
+  context.fillStyle = "#75667d";
   context.font = "22px Arial, sans-serif";
   context.fillText(formatLocal(telefono), width / 2, 382);
 
-  const qrData = await QRCode.toDataURL(codigo, { errorCorrectionLevel: "M", margin: 1, width: 360, color: { dark: "#403735", light: "#fffdf9" } });
+  const qrData = await QRCode.toDataURL(codigo, { errorCorrectionLevel: "M", margin: 1, width: 360, color: { dark: "#3f2d4b", light: "#fffafe" } });
   const qrImage = await loadImage(qrData);
   context.drawImage(qrImage, 190, 430, 340, 340);
-  context.fillStyle = "#7b625d";
+  context.fillStyle = "#725784";
   context.font = "bold 28px monospace";
   context.fillText(codigo, width / 2, 825);
-  context.fillStyle = "#403735";
+  context.fillStyle = "#3f2d4b";
   context.font = "34px Georgia, serif";
   context.fillText(mesaNumero && silla ? `Mesa ${mesaNumero} · Silla ${silla}` : "Mesa por asignar", width / 2, 900);
-  context.fillStyle = "#7e716d";
+  context.fillStyle = "#75667d";
   context.font = "18px Georgia, serif";
   context.fillText("Presenta este código al ingresar", width / 2, 965);
   context.font = "italic 18px Georgia, serif";
@@ -150,7 +150,7 @@ async function descargarPase({ numero, nombreCompleto, telefono, codigo, mesaNum
   const url = URL.createObjectURL(blob);
   const anchor = document.createElement("a");
   anchor.href = url;
-  anchor.download = `boda-alejandro-ana-${codigo.toLowerCase()}.png`;
+  anchor.download = `boda-jans-yurleydi-${codigo.toLowerCase()}.png`;
   document.body.appendChild(anchor);
   anchor.click();
   anchor.remove();

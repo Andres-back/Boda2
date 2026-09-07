@@ -6,7 +6,7 @@ import { prisma } from "@/lib/db";
 import { KeyRound, User } from "lucide-react";
 
 export const metadata = {
-  title: "Mi cuenta | Admin | Alejandro & Ana",
+  title: "Mi cuenta | Admin | Jans & Yurleydi",
 };
 
 export default async function AdminCuentaPage() {

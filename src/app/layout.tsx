@@ -34,13 +34,13 @@ const specialElite = Special_Elite({
 });
 
 export const metadata: Metadata = {
-  title: "Alejandro Valencia & Ana Usma | Nuestra boda",
-  description: "Acompáñanos a celebrar nuestra boda el 10 de octubre de 2026 en Mocoa, Putumayo.",
-  applicationName: "Alejandro & Ana",
+  title: "Jans Narvaez & Yurleydi Solarte | Nuestra boda",
+  description: "Acompáñanos a celebrar nuestra boda el 11 de octubre de 2026 a las 6:00 p. m. en Mocoa, Putumayo.",
+  applicationName: "Jans & Yurleydi",
 };
 
 export const viewport: Viewport = {
-  themeColor: "#fff9ee",
+  themeColor: "#f5edfb",
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
@@ -50,9 +50,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="es-CO" className={`${cormorant.variable} ${dmSans.variable} ${parisienne.variable} ${specialElite.variable} antialiased`}>
       <body className="min-h-screen flex flex-col font-body">
-        <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[10001] focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-[#5f4d49]">Ir al contenido principal</a>
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[10001] focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-[#5b3f6d]">Ir al contenido principal</a>
         {children}
-        <Toaster position="bottom-center" toastOptions={{ style: { background: "#fffdf9", color: "#4b403d", border: "1px solid rgba(123, 98, 93, .2)", fontFamily: "var(--font-dm-sans)" } }} />
+        <Toaster position="bottom-center" toastOptions={{ style: { background: "#fffafe", color: "#44334f", border: "1px solid rgba(123, 98, 93, .2)", fontFamily: "var(--font-dm-sans)" } }} />
       </body>
     </html>
   );

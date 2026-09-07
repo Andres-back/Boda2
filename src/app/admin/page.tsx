@@ -6,7 +6,7 @@ import { prisma } from "@/lib/db";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AnimatedNumber } from "@/components/ui/animated-number";
 
-export const metadata = { title: "Administración | Alejandro & Ana" };
+export const metadata = { title: "Administración | Jans & Yurleydi" };
 
 export default async function AdminDashboard() {
   const session = await auth();
@@ -25,7 +25,7 @@ export default async function AdminDashboard() {
 
   return (
     <main className="px-4 py-7 md:px-8 md:py-9">
-      <div className="mb-7"><p className="text-xs uppercase tracking-[.22em] text-ash">Panel de organización</p><h1 className="mt-1 font-display text-4xl text-cream">Hola, {session.user.name ?? "Administrador"}</h1><p className="mt-1 text-bone">Resumen en tiempo real de la boda de Alejandro y Ana.</p></div>
+      <div className="mb-7"><p className="text-xs uppercase tracking-[.22em] text-ash">Panel de organización</p><h1 className="mt-1 font-display text-4xl text-cream">Hola, {session.user.name ?? "Administrador"}</h1><p className="mt-1 text-bone">Resumen en tiempo real de la boda de Jans y Yurleydi.</p></div>
       <div className="mb-8 grid grid-cols-2 gap-3 lg:grid-cols-5">
         <Metric icon={UsersRound} label="Confirmaciones" value={reservas.length} />
         <Metric icon={CheckCircle2} label="Invitados" value={confirmados} />

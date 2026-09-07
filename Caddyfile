@@ -1,4 +1,4 @@
-# HTTPS y proxy inverso para la boda de Alejandro y Ana.
+# HTTPS y proxy inverso para la boda de Jans y Yurleydi.
 # DOMAIN se define en .env.production y debe apuntar a este servidor.
 
 {$DOMAIN} {

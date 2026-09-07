@@ -4,20 +4,20 @@ import bcrypt from "bcrypt";
 const prisma = new PrismaClient();
 
 const WEDDING_CONFIG = {
-  name: "Boda de Alejandro Valencia y Ana Usma",
-  startDate: process.env.EVENT_DATE ?? "2026-10-10T14:30:00-05:00",
-  venue: "Iglesia Cruzada Cristiana",
-  address: "Barrio San Francisco",
+  name: "Boda de Jans Narvaez y Yurleydi Solarte",
+  startDate: process.env.EVENT_DATE ?? "2026-10-11T18:00:00-05:00",
+  venue: "Iglesia Pentecostal Unida de Colombia · Sede 4",
+  address: "Barrio San Agustín",
   city: "Mocoa, Putumayo",
   capacity: process.env.EVENT_CAPACITY ? Number(process.env.EVENT_CAPACITY) : 0,
-  organizerWhatsapp: "573209107554",
+  organizerWhatsapp: "573000000000",
 } as const;
 
 async function main() {
   const adminEmail = process.env.ADMIN_EMAIL?.trim().toLowerCase();
   const adminPassword = process.env.ADMIN_PASSWORD ?? process.env.ADMIN_INITIAL_PASSWORD;
-  const adminNombre = process.env.ADMIN_NAME ?? "Alejandro y Ana";
-  const adminTelefono = process.env.ADMIN_TELEFONO ?? "+573209107554";
+  const adminNombre = process.env.ADMIN_NAME ?? "Jans y Yurleydi";
+  const adminTelefono = process.env.ADMIN_TELEFONO ?? "+573000000000";
   const adminWhatsapp = process.env.WHATSAPP_ADMIN_NUMBER ?? WEDDING_CONFIG.organizerWhatsapp;
 
   if (!adminEmail) {
@@ -63,8 +63,8 @@ async function main() {
   const weddingDefaults = {
     nombre: WEDDING_CONFIG.name,
     fecha: new Date(WEDDING_CONFIG.startDate),
-    puertas: "2:30 p. m.",
-    horaRecepcion: "18:30",
+    puertas: "6:00 p. m.",
+    horaRecepcion: "19:30",
     lugar: WEDDING_CONFIG.venue,
     barrio: WEDDING_CONFIG.address,
     ciudad: WEDDING_CONFIG.city,
@@ -81,12 +81,15 @@ async function main() {
       data: { id: "singleton", ...weddingDefaults },
     });
     console.log("[seed] Configuración inicial de la boda creada.");
-  } else if (configuracion.nombre.toLowerCase().includes("cumbre impacto")) {
+  } else if (
+    configuracion.nombre.toLowerCase().includes("cumbre impacto") ||
+    configuracion.nombre.toLowerCase().includes("alejandro valencia")
+  ) {
     await prisma.configuracion.update({
       where: { id: "singleton" },
       data: weddingDefaults,
     });
-    console.log("[seed] Configuración heredada de Cumbre migrada a la boda.");
+    console.log("[seed] Configuración heredada migrada a la boda de Jans y Yurleydi.");
   } else {
     console.log("[seed] Configuración existente preservada.");
   }

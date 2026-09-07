@@ -1,6 +1,6 @@
-# Boda de Alejandro Valencia y Ana Usma
+# Boda de Jans Narvaez y Yurleydi Solarte
 
-Invitación digital y plataforma operativa para la boda del 10 de octubre de 2026 en Mocoa, Putumayo. Incluye una portada cinematográfica y la gestión privada de confirmaciones, invitados, mesas, sillas, pases QR e ingreso.
+Invitación digital y plataforma operativa para la boda del 11 de octubre de 2026, a las 6:00 p. m., en la Iglesia Pentecostal Unida de Colombia, sede 4, barrio San Agustín, Mocoa. Incluye una portada cinematográfica en tonos lila y la gestión privada de confirmaciones, invitados, mesas, sillas, pases QR e ingreso.
 
 ## Funcionalidad integrada
 
@@ -52,7 +52,7 @@ docker compose --env-file .env.production exec app curl -fsS http://localhost:30
 docker compose --env-file .env.production exec db pg_isready -U cumbre_impacto -d cumbre_impacto
 ```
 
-Respuesta esperada del healthcheck: `{"status":"ok","service":"boda-alejandro-ana","database":"ok"}`.
+Respuesta esperada del healthcheck: `{"status":"ok","service":"boda-jans-yurleydi","database":"ok"}`.
 
 ## Rutas principales
 

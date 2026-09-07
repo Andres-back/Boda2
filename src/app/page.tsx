@@ -24,7 +24,7 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: EVENT_CONFIG.shortName,
       locale: "es_CO",
       type: "website",
-      images: [{ url: EVENT_CONFIG.wallpaper, width: 1200, height: 1600, alt: "Alejandro y Ana" }],
+      images: [{ url: EVENT_CONFIG.wallpaper, width: 1200, height: 1600, alt: "Jans y Yurleydi" }],
     },
     twitter: { card: "summary_large_image", title, description, images: [EVENT_CONFIG.wallpaper] },
     robots: { index: true, follow: true },

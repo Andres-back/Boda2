@@ -247,7 +247,7 @@ export function EditarConfiguracionForm({
               <Input
                 id="organizadorTelefono"
                 {...register("organizadorTelefono")}
-                placeholder="+57 320 910 7554"
+                placeholder="+57 300 000 0000"
                 className="h-12 text-base"
               />
               {errors.organizadorTelefono && (
@@ -263,7 +263,7 @@ export function EditarConfiguracionForm({
               <Input
                 id="organizadorWhatsapp"
                 {...register("organizadorWhatsapp")}
-                placeholder="+57 320 910 7554"
+                placeholder="+57 300 000 0000"
                 className="h-12 text-base"
               />
               {errors.organizadorWhatsapp && (

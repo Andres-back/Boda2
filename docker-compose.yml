@@ -1,4 +1,4 @@
-# Boda de Alejandro Valencia y Ana Usma - producción
+# Boda de Jans Narvaez y Yurleydi Solarte - producción
 #
 # 1. Copia .env.production.example como .env.production y completa los secretos.
 # 2. Valida: docker compose --env-file .env.production config

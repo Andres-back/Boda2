@@ -12,7 +12,7 @@ import { Users, Mail, Phone, Calendar, AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export const metadata = {
-  title: "Cuentas de acceso | Admin | Alejandro & Ana",
+  title: "Cuentas de acceso | Admin | Jans & Yurleydi",
 };
 
 function formatDate(d: Date) {

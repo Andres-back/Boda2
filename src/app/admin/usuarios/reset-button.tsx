@@ -84,7 +84,7 @@ export function ResetPwdButton({
           <a
             href={buildWhatsappSimpleUrl(
               userPhone,
-              `Hola ${userName.split(" ")[0]}, te escribimos de parte de Alejandro y Ana. Restablecimos tu contraseña de acceso a la invitación. Entra y sigue las instrucciones para crear una nueva.`
+              `Hola ${userName.split(" ")[0]}, te escribimos de parte de Jans y Yurleydi. Restablecimos tu contraseña de acceso a la invitación. Entra y sigue las instrucciones para crear una nueva.`
             )}
             target="_blank"
             rel="noopener noreferrer"

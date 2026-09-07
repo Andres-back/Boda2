@@ -45,10 +45,10 @@ function toDatetimeLocal(d: Date): string {
 export default async function AdminEventoPage() {
   const cfg = await getConfiguracion();
   // Re-hidratar por si unstable_cache serializo las fechas a string.
-  const fechaCfg = toValidDate(cfg.fecha, new Date("2026-10-10T14:30:00-05:00"));
+  const fechaCfg = toValidDate(cfg.fecha, new Date("2026-10-11T18:00:00-05:00"));
   const actualizadoEn = toValidDate(
     cfg.actualizadoEn,
-    new Date("2026-10-10T14:30:00-05:00")
+    new Date("2026-10-11T18:00:00-05:00")
   );
 
   return (

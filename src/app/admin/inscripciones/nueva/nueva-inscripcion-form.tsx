@@ -34,7 +34,7 @@ export function NuevaInscripcionForm() {
   }, [state]);
 
   const waText = encodeURIComponent(
-    `Hola ${nombre || ""}, Alejandro y Ana confirmaron tu invitación a su boda. Puedes ingresar con el correo ${email}.`
+    `Hola ${nombre || ""}, Jans y Yurleydi confirmaron tu invitación a su boda. Puedes ingresar con el correo ${email}.`
   );
   const waDigits = telefono.replace(/\D/g, "").replace(/^(\d{10})$/, "57$1");
   const waUrl = waDigits ? `https://wa.me/${waDigits}?text=${waText}` : "";

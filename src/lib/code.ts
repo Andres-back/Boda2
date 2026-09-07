@@ -4,9 +4,9 @@ import { ACCESS_CODE_ALPHABET, ACCESS_CODE_LENGTH, ACCESS_CODE_PREFIX } from "./
 const generate = customAlphabet(ACCESS_CODE_ALPHABET, ACCESS_CODE_LENGTH);
 
 /**
- * Genera un codigo de entrada tipo `AA-A7K2P9M3`.
+ * Genera un codigo de entrada tipo `JY-A7K2P9M3`.
  * Longitud: 8 caracteres del alfabeto sin ambiguos (sin 0/O, 1/I/L).
- * Prefijo: AA (Alejandro y Ana).
+ * Prefijo: JY (Jans y Yurleydi).
  */
 export function generateEntradaCode(): string {
   return `${ACCESS_CODE_PREFIX}-${generate()}`;

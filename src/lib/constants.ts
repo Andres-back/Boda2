@@ -61,15 +61,15 @@ export async function getConfiguracion(): Promise<ConfiguracionData> {
     id: "singleton",
     nombre: EVENT_CONFIG.name,
     fecha: new Date(EVENT_CONFIG.startDate),
-    puertas: "2:30 p. m.",
-    horaRecepcion: "18:30",
+    puertas: "6:00 p. m.",
+    horaRecepcion: "19:30",
     lugar: EVENT_CONFIG.venue,
     barrio: EVENT_CONFIG.address,
     ciudad: EVENT_CONFIG.city,
     precioPorPersona: 0,
-    organizadorNombre: "Alejandro Valencia y Ana Usma",
+    organizadorNombre: "Jans Narvaez y Yurleydi Solarte",
     organizadorEmail: process.env.ADMIN_EMAIL?.toLowerCase() ?? "",
-    organizadorTelefono: process.env.ADMIN_TELEFONO ?? "+573209107554",
+    organizadorTelefono: process.env.ADMIN_TELEFONO ?? "+573000000000",
     organizadorWhatsapp: process.env.WHATSAPP_ADMIN_NUMBER ?? EVENT_CONFIG.organizerWhatsapp,
     actualizadoEn: new Date(),
     actualizadoPorId: null,
@@ -83,7 +83,7 @@ export const EVENT_NOMBRE = EVENT_CONFIG.name;
 export const EVENT_LUGAR = EVENT_CONFIG.venue;
 export const EVENT_BARRIO = EVENT_CONFIG.address;
 export const WHATSAPP_ADMIN_NUMBER = process.env.WHATSAPP_ADMIN_NUMBER ?? EVENT_CONFIG.organizerWhatsapp;
-export const WHATSAPP_ADMIN_DISPLAY = process.env.WHATSAPP_ADMIN_DISPLAY ?? "320 910 7554";
+export const WHATSAPP_ADMIN_DISPLAY = process.env.WHATSAPP_ADMIN_DISPLAY ?? "300 000 0000";
 export const ADMIN_EMAIL = (process.env.ADMIN_EMAIL ?? "").toLowerCase();
-export const ADMIN_NAME = process.env.ADMIN_NAME ?? "Alejandro y Ana";
-export const ADMIN_TELEFONO = process.env.ADMIN_TELEFONO ?? "+573209107554";
+export const ADMIN_NAME = process.env.ADMIN_NAME ?? "Jans y Yurleydi";
+export const ADMIN_TELEFONO = process.env.ADMIN_TELEFONO ?? "+573000000000";
