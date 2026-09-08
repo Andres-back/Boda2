@@ -6,18 +6,10 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
-  CalendarDays,
   ChevronLeft,
   ChevronRight,
-  BookOpen,
-  Clock3,
-  Gift,
-  Heart,
-  MapPin,
   Menu,
   Music2,
-  MessageCircleHeart,
-  Sparkles,
   Volume2,
   VolumeX,
   X,
@@ -236,7 +228,7 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
             <strong>¡Queremos vivir este momento contigo!</strong> Dios cruzó nuestros caminos y hoy iniciamos una nueva etapa. Tu presencia hará que este inicio sea muy especial.
           </p>
           <button type="button" className={styles.primaryButton} onClick={openInvitation}>
-            Abrir invitación <Heart size={16} strokeWidth={1.5} />
+            Abrir invitación
           </button>
           <p className={styles.entranceDate}>{details.numericDate} &nbsp;—&nbsp; {event.ciudad}</p>
         </div>
@@ -317,7 +309,6 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
           <div className={styles.promiseMedia} />
           <div className={styles.promiseShade} />
           <div className={styles.promiseContent} data-reveal>
-            <Sparkles size={24} strokeWidth={1.2} />
             <p className={styles.eyebrow}>Una promesa para siempre</p>
             <blockquote>“Todo lo sufre, todo lo cree, todo lo espera, todo lo soporta.”</blockquote>
             <cite>1 Corintios 13:7</cite>
@@ -340,7 +331,7 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
               ))}
             </div>
             <div className={styles.calendarLine} data-reveal>
-              <CalendarDays size={18} strokeWidth={1.5} /> {details.calendarDate}
+              {details.calendarDate}
             </div>
           </div>
         </section>
@@ -360,10 +351,10 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
                   <Image className={styles.eventImageMain} src="/wedding/jans-yurleydi-ceremony.jpeg" alt="Jans y Yurleydi juntos" fill sizes="(max-width: 800px) 100vw, 50vw" />
                 </div>
                 <div className={styles.eventBody}>
-                  <span className={styles.eventNumber}>01</span><BookOpen size={24} strokeWidth={1.3} />
+                  <span className={styles.eventNumber}>01</span>
                   <p className={styles.eyebrow}>Ceremonia</p><h3>Nuestra promesa</h3>
                   <p>Uniremos nuestras vidas delante de Dios, nuestra familia y nuestros amigos.</p>
-                  <div className={styles.eventMeta}><span><Clock3 />{details.ceremonyTime}</span><span><MapPin />{details.location}</span></div>
+                  <div className={styles.eventMeta}><span>{details.ceremonyTime}</span><span>{details.location}</span></div>
                 </div>
               </article>
               <article className={styles.eventCard} data-reveal>
@@ -372,14 +363,14 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
                   <Image className={styles.eventImageMain} src="/wedding/jans-yurleydi-reception.jpeg" alt="Jans y Yurleydi celebrando su compromiso" fill sizes="(max-width: 800px) 100vw, 50vw" />
                 </div>
                 <div className={styles.eventBody}>
-                  <span className={styles.eventNumber}>02</span><Heart size={24} strokeWidth={1.3} />
+                  <span className={styles.eventNumber}>02</span>
                   <p className={styles.eyebrow}>Recepción</p><h3>Compartamos este momento</h3>
                   <p>Después de la ceremonia, celebremos juntos la fidelidad y la bondad de Dios.</p>
-                  <div className={styles.eventMeta}><span><Clock3 />Al finalizar la ceremonia</span><span><MapPin />{details.location}</span></div>
+                  <div className={styles.eventMeta}><span>Al finalizar la ceremonia</span><span>{details.location}</span></div>
                 </div>
               </article>
             </div>
-            <a className={styles.ghostButton} href={details.mapsUrl} target="_blank" rel="noreferrer"><MapPin size={16} /> Cómo llegar</a>
+            <a className={styles.ghostButton} href={details.mapsUrl} target="_blank" rel="noreferrer">Cómo llegar</a>
           </div>
         </section>
 
@@ -429,7 +420,6 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
           <Image className={styles.rsvpFloral} src="/wedding/generated-botanical.png" alt="" width={520} height={520} />
           <Image className={styles.rsvpPetals} src="/wedding/generated-petals.png" alt="" width={1536} height={1024} />
           <div className={styles.rsvpCard} data-reveal>
-            <MessageCircleHeart size={28} strokeWidth={1.25} />
             <p className={styles.eyebrow}>Nos encantará contar contigo</p>
             <h2 className={styles.sectionTitle}>Confirma tu <em>asistencia</em></h2>
             <p>Ayúdanos a preparar cada lugar con amor. Podrás registrar a las personas que te acompañarán y consultar después tu mesa y acceso.</p>
@@ -442,7 +432,6 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
           <div className={styles.giftComposition}>
             <Image className={styles.giftArt} src="/wedding/generated-gifts.png" alt="" width={1024} height={1536} />
             <div className={styles.giftCard} data-reveal>
-              <Gift size={28} strokeWidth={1.25} />
               <p className={styles.eyebrow}>Un detalle desde el corazón</p>
               <h2>Tu presencia es nuestra mayor alegría</h2>
               <p>Si deseas bendecir nuestro nuevo hogar, recibiremos con gratitud lo que Dios ponga en tu corazón.</p>
