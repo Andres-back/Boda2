@@ -9,7 +9,7 @@ import {
   CalendarDays,
   ChevronLeft,
   ChevronRight,
-  Church,
+  BookOpen,
   Clock3,
   Gift,
   Heart,
@@ -322,7 +322,7 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
             <blockquote>“Todo lo sufre, todo lo cree, todo lo espera, todo lo soporta.”</blockquote>
             <cite>1 Corintios 13:7</cite>
           </div>
-          <Image className={styles.promiseDoves} src="/wedding/generated-doves.png" alt="" width={1536} height={1024} />
+          <Image className={styles.promiseBible} src="/wedding/generated-bible-rings.png" alt="" width={1536} height={1024} />
         </section>
 
         <section id="fecha" className={styles.countdownSection} data-chapter>
@@ -346,6 +346,7 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
         </section>
 
         <section id="ceremonia" className={styles.schedule} data-chapter>
+          <Image className={styles.scheduleFaithArt} src="/wedding/generated-word-light.png" alt="" width={1214} height={1295} />
           <div className={styles.container}>
             <header className={styles.sectionHeading} data-reveal>
               <p className={styles.eyebrow}>Nuestro día</p>
@@ -359,7 +360,7 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
                   <Image className={styles.eventImageMain} src="/wedding/jans-yurleydi-ceremony.jpeg" alt="Jans y Yurleydi juntos" fill sizes="(max-width: 800px) 100vw, 50vw" />
                 </div>
                 <div className={styles.eventBody}>
-                  <span className={styles.eventNumber}>01</span><Church size={24} strokeWidth={1.3} />
+                  <span className={styles.eventNumber}>01</span><BookOpen size={24} strokeWidth={1.3} />
                   <p className={styles.eyebrow}>Ceremonia</p><h3>Nuestra promesa</h3>
                   <p>Uniremos nuestras vidas delante de Dios, nuestra familia y nuestros amigos.</p>
                   <div className={styles.eventMeta}><span><Clock3 />{details.ceremonyTime}</span><span><MapPin />{details.location}</span></div>

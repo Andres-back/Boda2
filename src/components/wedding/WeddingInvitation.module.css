@@ -238,7 +238,7 @@
 .promiseContent .eyebrow { color: var(--gold-pale); }
 .promiseContent blockquote { margin: 26px auto 18px; font: italic 300 clamp(37px, 6vw, 68px)/1.06 var(--serif); letter-spacing: -0.03em; }
 .promiseContent cite { font-size: 9px; font-style: normal; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; }
-.promiseDoves { position: absolute; z-index: 1; left: 50%; bottom: 14px; width: min(470px, 46vw); height: auto; opacity: 0.3; transform: translateX(-50%); filter: drop-shadow(0 15px 28px rgba(23, 11, 31, 0.22)); pointer-events: none; }
+.promiseBible { position: absolute; z-index: 1; left: 50%; bottom: -18px; width: min(500px, 48vw); height: auto; opacity: 0.28; transform: translateX(-50%); filter: drop-shadow(0 15px 28px rgba(23, 11, 31, 0.22)); pointer-events: none; }
 
 .countdownSection { position: relative; overflow: hidden; padding: 130px 0 140px; background: linear-gradient(145deg, #f4eafb 0%, #e7d4f2 48%, #c8a8dc 100%); color: var(--cocoa); }
 .countdownSection::before { content: ""; position: absolute; inset: 0; opacity: 0.62; background: radial-gradient(circle at 12% 18%, rgba(255, 250, 241, 0.86), transparent 27%), radial-gradient(circle at 88% 76%, rgba(255, 240, 181, 0.78), transparent 30%); }
@@ -256,7 +256,9 @@
 .countdown span { margin-top: 10px; font-size: 8px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; }
 .calendarLine { position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; gap: 9px; margin-top: 28px; color: rgba(64, 82, 71, 0.76); font-size: 9px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; }
 
-.schedule { position: relative; padding: 125px 0 135px; background: var(--ivory); }
+.schedule { position: relative; overflow: hidden; padding: 125px 0 135px; background: var(--ivory); }
+.schedule > .container { position: relative; z-index: 1; }
+.scheduleFaithArt { position: absolute; right: clamp(14px, 3vw, 52px); top: 38px; width: min(250px, 20vw); height: auto; opacity: 0.13; filter: drop-shadow(0 18px 34px rgba(81, 49, 102, 0.1)); pointer-events: none; }
 .scheduleGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
 .eventCard { overflow: hidden; border: 1px solid var(--line); border-radius: 28px; background: var(--paper); box-shadow: 0 25px 65px rgba(157, 99, 115, 0.1); }
 .eventImage { position: relative; height: clamp(600px, 42vw, 760px); isolation: isolate; overflow: hidden; background: #e8dcee; }
@@ -418,7 +420,7 @@
   .promise { min-height: 83svh; }
   .promiseContent { padding: 100px 0; }
   .promiseContent blockquote { font-size: clamp(39px, 11vw, 55px); }
-  .promiseDoves { bottom: 20px; width: min(270px, 72vw); opacity: 0.22; }
+  .promiseBible { bottom: 10px; width: min(300px, 78vw); opacity: 0.24; }
   .countdownSection { padding: 96px 0 105px; }
   .sectionDivider { width: min(430px, 88vw); margin: -22px auto 22px; }
   .countdown { grid-template-columns: repeat(2, 1fr); }
@@ -428,6 +430,7 @@
   .countdown strong { font-size: 52px; }
   .calendarLine { line-height: 1.6; text-align: center; }
   .schedule { padding: 92px 0 100px; }
+  .scheduleFaithArt { right: 10px; top: 18px; width: min(145px, 38vw); opacity: 0.11; }
   .scheduleGrid { grid-template-columns: 1fr; gap: 18px; }
   .eventCard { border-radius: 23px; }
   .eventImage { height: clamp(440px, 138vw, 820px); }
