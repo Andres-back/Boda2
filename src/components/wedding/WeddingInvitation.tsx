@@ -322,6 +322,7 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
             <blockquote>“Todo lo sufre, todo lo cree, todo lo espera, todo lo soporta.”</blockquote>
             <cite>1 Corintios 13:7</cite>
           </div>
+          <Image className={styles.promiseDoves} src="/wedding/generated-doves.png" alt="" width={1536} height={1024} />
         </section>
 
         <section id="fecha" className={styles.countdownSection} data-chapter>
@@ -425,6 +426,7 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
 
         <section id="confirmar" className={styles.rsvp} data-chapter>
           <Image className={styles.rsvpFloral} src="/wedding/generated-botanical.png" alt="" width={520} height={520} />
+          <Image className={styles.rsvpPetals} src="/wedding/generated-petals.png" alt="" width={1536} height={1024} />
           <div className={styles.rsvpCard} data-reveal>
             <MessageCircleHeart size={28} strokeWidth={1.25} />
             <p className={styles.eyebrow}>Nos encantará contar contigo</p>
@@ -437,7 +439,7 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
 
         <section className={styles.gifts}>
           <div className={styles.giftComposition}>
-            <Image className={styles.giftCandles} src="/wedding/generated-candles.png" alt="" width={1024} height={1536} />
+            <Image className={styles.giftArt} src="/wedding/generated-gifts.png" alt="" width={1024} height={1536} />
             <div className={styles.giftCard} data-reveal>
               <Gift size={28} strokeWidth={1.25} />
               <p className={styles.eyebrow}>Un detalle desde el corazón</p>
@@ -449,7 +451,10 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
       </main>
 
       <footer className={styles.footer}>
-        <p className={styles.footerMonogram}>J <span>&</span> Y</p>
+        <div className={styles.footerMonogramWrap}>
+          <Image className={styles.footerWreath} src="/wedding/generated-wreath.png" alt="" width={1024} height={1536} />
+          <p className={styles.footerMonogram}>J <span>&</span> Y</p>
+        </div>
         <p>Jans Narvaez & Yurleydi Solarte</p>
         <small>{details.date} · {details.fullLocation}</small>
         <blockquote>“Y sobre todas estas cosas vestíos de amor.” <cite>Colosenses 3:14</cite></blockquote>
