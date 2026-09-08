@@ -12,7 +12,7 @@ export const EVENT_CONFIG = {
   addressLine2: "Mocoa, Putumayo, Colombia",
   city: "Mocoa, Putumayo",
   capacity: process.env.EVENT_CAPACITY ? Number(process.env.EVENT_CAPACITY) : null,
-  mapsUrl: process.env.MAPS_URL ?? "https://www.google.com/maps/search/?api=1&query=Iglesia%20Pentecostal%20Unida%20de%20Colombia%20Sede%204%2C%20Barrio%20San%20Agustin%2C%20Mocoa%2C%20Putumayo",
+  mapsUrl: process.env.MAPS_URL ?? "https://www.google.com/maps/search/?api=1&query=1.144042%2C-76.64302",
   whatsappUrl: process.env.WHATSAPP_URL ?? "",
   organizerWhatsapp: "573000000000",
   wallpaper: "/wedding/jans-yurleydi-hero.jpeg",
@@ -30,6 +30,11 @@ export const EVENT_JSON_LD = {
   location: {
     "@type": "Place",
     name: EVENT_CONFIG.venue,
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 1.144042,
+      longitude: -76.64302,
+    },
     address: {
       "@type": "PostalAddress",
       addressLocality: "Mocoa",

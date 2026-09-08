@@ -31,6 +31,7 @@ export type WeddingInvitationProps = {
   isAdmin: boolean;
   isLoggedIn: boolean;
   event: WeddingEvent;
+  mapsUrl: string;
 };
 
 type Countdown = { days: number; hours: number; minutes: number; seconds: number };
@@ -70,8 +71,8 @@ function getCountdown(fecha: string): Countdown {
   };
 }
 
-export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedIn }: WeddingInvitationProps) {
-  const details = weddingPresentation(event);
+export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedIn, mapsUrl }: WeddingInvitationProps) {
+  const details = weddingPresentation(event, mapsUrl);
   const root = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLElement>(null);
   const menuRef = useRef<HTMLButtonElement>(null);
@@ -331,6 +332,7 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
               <h2 className={styles.sectionTitle}>Cada vez <em>más cerca</em></h2>
               <p className={styles.sectionCopy}>El {details.shortDate} comenzará un nuevo capítulo. Nos hará muy felices vivirlo contigo.</p>
             </header>
+            <Image className={styles.sectionDivider} src="/wedding/generated-divider.png" alt="" width={2172} height={724} />
             <div className={styles.countdown} data-reveal>
               {countdownItems.map(([value, label]) => (
                 <div key={label}><strong>{String(value).padStart(2, "0")}</strong><span>{label}</span></div>
@@ -387,10 +389,12 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
             <p>Entre conversaciones, oraciones y sueños compartidos, descubrimos que el amor también es elegir caminar juntos cada día.</p>
             <p>Hoy, con Cristo en el centro de nuestro hogar, damos el sí a una vida de fe, servicio y compañía.</p>
             <div className={styles.signature}>Jans & Yurleydi</div>
+            <Image className={styles.storyRibbon} src="/wedding/generated-ribbon.png" alt="" width={1672} height={941} />
           </div>
         </section>
 
         <section id="momentos" className={styles.gallerySection} data-chapter>
+          <Image className={styles.galleryCorner} src="/wedding/generated-corner.png" alt="" width={1254} height={1254} />
           <div className={styles.container}>
             <header className={styles.sectionHeading} data-reveal>
               <p className={styles.eyebrow}>Instantes que guardamos</p>
@@ -432,11 +436,14 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
         </section>
 
         <section className={styles.gifts}>
-          <div className={styles.giftCard} data-reveal>
-            <Gift size={28} strokeWidth={1.25} />
-            <p className={styles.eyebrow}>Un detalle desde el corazón</p>
-            <h2>Tu presencia es nuestra mayor alegría</h2>
-            <p>Si deseas bendecir nuestro nuevo hogar, recibiremos con gratitud lo que Dios ponga en tu corazón.</p>
+          <div className={styles.giftComposition}>
+            <Image className={styles.giftCandles} src="/wedding/generated-candles.png" alt="" width={1024} height={1536} />
+            <div className={styles.giftCard} data-reveal>
+              <Gift size={28} strokeWidth={1.25} />
+              <p className={styles.eyebrow}>Un detalle desde el corazón</p>
+              <h2>Tu presencia es nuestra mayor alegría</h2>
+              <p>Si deseas bendecir nuestro nuevo hogar, recibiremos con gratitud lo que Dios ponga en tu corazón.</p>
+            </div>
           </div>
         </section>
       </main>

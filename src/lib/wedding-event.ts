@@ -31,7 +31,7 @@ export function publicWeddingEvent(config: {
     whatsapp: config.organizadorWhatsapp.replace(/\D/g, ""),
   };
 }
-export function weddingPresentation(event: WeddingEvent) {
+export function weddingPresentation(event: WeddingEvent, mapsUrlOverride?: string) {
   const localDate = toBogotaInput(event.fecha).slice(0, 10);
   const phone = event.whatsapp.startsWith("57") && event.whatsapp.length === 12 ? event.whatsapp.slice(2) : event.whatsapp;
   const location = [event.lugar, event.barrio].filter(Boolean).join(" · ");
@@ -44,7 +44,7 @@ export function weddingPresentation(event: WeddingEvent) {
     receptionTime: weddingTime(`${localDate}T${event.horaRecepcion}:00-05:00`),
     location,
     fullLocation: [location, event.ciudad].filter(Boolean).join(" · "),
-    mapsUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent([event.lugar, event.barrio, event.ciudad].filter(Boolean).join(", "))}`,
+    mapsUrl: mapsUrlOverride?.trim() || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent([event.lugar, event.barrio, event.ciudad].filter(Boolean).join(", "))}`,
     whatsappUrl: `https://wa.me/${event.whatsapp}`,
     phoneDisplay: phone.length === 10 ? `${phone.slice(0, 3)} ${phone.slice(3, 6)} ${phone.slice(6)}` : `+${phone}`,
   };

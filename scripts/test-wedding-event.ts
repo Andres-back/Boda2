@@ -21,6 +21,8 @@ for (const tz of ["UTC", "America/Bogota", "Asia/Tokyo"]) {
   assert.equal(view.phoneDisplay, "320 910 7554");
   assert.equal(view.whatsappUrl, "https://wa.me/573209107554");
   assert.match(decodeURIComponent(view.mapsUrl), /Iglesia Cruzada Cristiana, Barrio San Francisco, Mocoa, Putumayo/);
+  const exactMapUrl = "https://www.google.com/maps/search/?api=1&query=1.144042%2C-76.64302";
+  assert.equal(weddingPresentation(event, exactMapUrl).mapsUrl, exactMapUrl);
   const changed = weddingPresentation({ ...event, fecha: parseBogotaInput("2026-11-15T10:15").toISOString(), lugar: "Otro lugar", horaRecepcion: "12:00", whatsapp: "573001112233" });
   assert.equal(changed.date, "15 de noviembre de 2026");
   assert.equal(changed.ceremonyTime, "10:15 a. m.");

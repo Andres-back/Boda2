@@ -38,7 +38,12 @@ export default async function HomePage() {
     "@context": "https://schema.org", "@type": "Event", name: event.nombre,
     startDate: event.fecha, eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
     eventStatus: "https://schema.org/EventScheduled",
-    location: { "@type": "Place", name: event.lugar, address: { "@type": "PostalAddress", streetAddress: event.barrio, addressLocality: event.ciudad, addressCountry: "CO" } },
+    location: {
+      "@type": "Place",
+      name: event.lugar,
+      geo: { "@type": "GeoCoordinates", latitude: 1.144042, longitude: -76.64302 },
+      address: { "@type": "PostalAddress", streetAddress: event.barrio, addressLocality: event.ciudad, addressCountry: "CO" },
+    },
     image: [EVENT_CONFIG.wallpaper, EVENT_CONFIG.poster],
     description: `${event.nombre}. ${details.date}, ${details.fullLocation}.`,
   };
@@ -60,7 +65,7 @@ export default async function HomePage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
-      <WeddingInvitationClient ctaHref={ctaHref} ctaLabel={ctaLabel} event={event} isAdmin={session?.user?.role === "ADMIN"} isLoggedIn={!!session?.user} />
+      <WeddingInvitationClient ctaHref={ctaHref} ctaLabel={ctaLabel} event={event} mapsUrl={EVENT_CONFIG.mapsUrl} isAdmin={session?.user?.role === "ADMIN"} isLoggedIn={!!session?.user} />
     </>
   );
 }
