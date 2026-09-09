@@ -1,8 +1,4 @@
-# Boda de Jans Narvaez y Yurleydi Solarte - producción
-#
-# 1. Copia .env.production.example como .env.production y completa los secretos.
-# 2. Valida: docker compose --env-file .env.production config
-# 3. Despliega: docker compose --env-file .env.production up -d --build
+name: boda-jans-yurleydi
 
 x-logging: &default-logging
   driver: json-file
@@ -13,76 +9,56 @@ x-logging: &default-logging
 services:
   db:
     image: postgres:16-alpine
-    container_name: cumbre-impacto-db
+    container_name: boda-jans-yurleydi-db
     restart: unless-stopped
     environment:
-      POSTGRES_USER: cumbre_impacto
+      POSTGRES_USER: boda_jans
       POSTGRES_PASSWORD: ${DB_PASSWORD:?Define DB_PASSWORD en .env.production}
-      POSTGRES_DB: cumbre_impacto
+      POSTGRES_DB: boda_jans
     volumes:
-      - cumbre_impacto_pgdata:/var/lib/postgresql/data
+      - boda_jans_yurleydi_pgdata:/var/lib/postgresql/data
     networks:
-      - cumbre-impacto-network
+      - boda-jans-yurleydi-network
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U cumbre_impacto -d cumbre_impacto"]
+      test: ["CMD-SHELL", "pg_isready -U boda_jans -d boda_jans"]
       interval: 10s
       timeout: 5s
       retries: 5
       start_period: 15s
+    security_opt:
+      - no-new-privileges:true
     logging: *default-logging
 
   app:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: cumbre-impacto-app
+    container_name: boda-jans-yurleydi-app
     restart: unless-stopped
     init: true
     env_file:
       - path: .env.production
         required: true
     environment:
-      DATABASE_URL: postgresql://cumbre_impacto:${DB_PASSWORD}@db:5432/cumbre_impacto?schema=public
+      DATABASE_URL: postgresql://boda_jans:${DB_PASSWORD}@db:5432/boda_jans?schema=public
       DB_HOST: db
       DB_PORT: "5432"
-      DB_USER: cumbre_impacto
-      DB_NAME: cumbre_impacto
+      DB_USER: boda_jans
+      DB_NAME: boda_jans
+    ports:
+      - "127.0.0.1:${APP_BIND_PORT:-3004}:3000"
     depends_on:
       db:
         condition: service_healthy
     networks:
-      - cumbre-impacto-network
-    security_opt:
-      - no-new-privileges:true
-    logging: *default-logging
-
-  caddy:
-    image: caddy:2-alpine
-    container_name: cumbre-impacto-caddy
-    restart: unless-stopped
-    ports:
-      - "80:80"
-      - "443:443"
-    environment:
-      DOMAIN: ${DOMAIN:?Define DOMAIN en .env.production}
-    volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile:ro
-      - cumbre_impacto_caddy_data:/data
-      - cumbre_impacto_caddy_config:/config
-    networks:
-      - cumbre-impacto-network
-    depends_on:
-      app:
-        condition: service_healthy
+      - boda-jans-yurleydi-network
     security_opt:
       - no-new-privileges:true
     logging: *default-logging
 
 volumes:
-  cumbre_impacto_pgdata:
-  cumbre_impacto_caddy_data:
-  cumbre_impacto_caddy_config:
+  boda_jans_yurleydi_pgdata:
 
 networks:
-  cumbre-impacto-network:
+  boda-jans-yurleydi-network:
     driver: bridge
