@@ -14,7 +14,7 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "public" / "wedding"
-OUTPUT = ROOT / "output" / "pdf" / "Invitacion_Jans_y_Yurleydi_Alejandro_Valencia.pdf"
+OUTPUT = ROOT / "output" / "pdf" / "Invitacion_Jans_y_Yurleydi.pdf"
 OPTIMIZED = ROOT / "tmp" / "pdfs" / "optimized-assets"
 
 W, H = A4
@@ -127,7 +127,7 @@ def draw_header(c: canvas.Canvas) -> None:
     c.drawCentredString(W / 2, H - 238, "MARCOS 10:9")
 
 
-def draw_guest_card(c: canvas.Canvas) -> None:
+def draw_invitation_card(c: canvas.Canvas) -> None:
     x, y, card_w, card_h = 62, 274, W - 124, 310
 
     c.saveState()
@@ -144,21 +144,21 @@ def draw_guest_card(c: canvas.Canvas) -> None:
 
     c.setFillColor(LILAC)
     c.setFont("GeorgiaBold", 7.6)
-    c.drawCentredString(W / 2, y + 122, "INVITACIÓN PERSONAL")
+    c.drawCentredString(W / 2, y + 122, "INVITACIÓN DE BODA")
 
     c.setFillColor(INK)
-    c.setFont("Gabriola", 29)
-    c.drawCentredString(W / 2, y + 84, "Sr. Alejandro Valencia")
+    c.setFont("Gabriola", 27)
+    c.drawCentredString(W / 2, y + 84, "Queremos compartir este momento contigo")
 
     c.setStrokeColor(LILAC_SOFT)
     c.line(W / 2 - 118, y + 67, W / 2 + 118, y + 67)
 
     c.setFillColor(MUTED)
     c.setFont("Georgia", 9.3)
-    c.drawCentredString(W / 2, y + 47, "Será una alegría compartir este día contigo")
+    c.drawCentredString(W / 2, y + 47, "Con la bendición de Dios y la alegría de nuestras familias")
     c.setFillColor(LILAC_DARK)
-    c.setFont("GeorgiaBold", 8)
-    c.drawCentredString(W / 2, y + 27, "HEMOS RESERVADO PARA TI 1 LUGAR")
+    c.setFont("GeorgiaBold", 7.4)
+    c.drawCentredString(W / 2, y + 27, "ACOMPÁÑANOS A CELEBRAR NUESTRO PACTO DELANTE DE DIOS")
 
 
 def draw_details(c: canvas.Canvas) -> None:
@@ -208,10 +208,10 @@ def create_pdf() -> None:
     c = canvas.Canvas(str(OUTPUT), pagesize=A4, pageCompression=1)
     c.setTitle("Invitación de boda - Jans Narvaez y Yurleydi Solarte")
     c.setAuthor("Jans Narvaez y Yurleydi Solarte")
-    c.setSubject("Invitación personalizada para Alejandro Valencia")
+    c.setSubject("Invitación universal de boda")
     draw_background(c)
     draw_header(c)
-    draw_guest_card(c)
+    draw_invitation_card(c)
     draw_details(c)
     c.showPage()
     c.save()
