@@ -25,7 +25,7 @@ export type WeddingInvitationProps = {
 };
 
 type Countdown = { days: number; hours: number; minutes: number; seconds: number };
-const WEDDING_SONG_ID = "Hi31PDV4YhA";
+const WEDDING_SONG_SRC = "/wedding/amarte-por-mil-anos-mas-piano.mp3";
 
 const chapters = [
   "Nuestro día",
@@ -66,7 +66,10 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
   const root = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLElement>(null);
   const menuRef = useRef<HTMLButtonElement>(null);
+  const musicAudio = useRef<HTMLAudioElement>(null);
   const [opened, setOpened] = useState(false);
+  const [musicPlaying, setMusicPlaying] = useState(false);
+  const [musicPlayFailed, setMusicPlayFailed] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
     if (!menuOpen) return;
@@ -181,9 +184,24 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
   }, [lightbox]);
 
 
+  const startMusic = () => {
+    const audio = musicAudio.current;
+    if (!audio) return;
+    void audio.play().catch(() => setMusicPlayFailed(true));
+  };
+
   const openInvitation = () => {
+    // Keep play() inside the visitor's click gesture for mobile autoplay policies.
+    startMusic();
     setOpened(true);
     window.requestAnimationFrame(() => window.scrollTo(0, 0));
+  };
+
+  const toggleMusic = () => {
+    const audio = musicAudio.current;
+    if (!audio) return;
+    if (audio.paused) startMusic();
+    else audio.pause();
   };
 
   const closeMenu = () => setMenuOpen(false);
@@ -235,16 +253,25 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
         </button>
       </nav>
 
-      <a
-        className={`${styles.musicControl} ${opened ? styles.musicControlVisible : ""}`}
-        href={`https://www.youtube.com/watch?v=${WEDDING_SONG_ID}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Escuchar nuestra canción en YouTube (abre una pestaña nueva)"
+      <audio
+        ref={musicAudio}
+        src={WEDDING_SONG_SRC}
+        preload="auto"
+        loop
+        onPlay={() => { setMusicPlaying(true); setMusicPlayFailed(false); }}
+        onPause={() => setMusicPlaying(false)}
+        onError={() => setMusicPlayFailed(true)}
+      />
+      <button
+        type="button"
+        className={`${styles.musicControl} ${opened ? styles.musicControlVisible : ""} ${musicPlaying ? styles.musicControlPlaying : ""}`}
+        onClick={toggleMusic}
+        aria-label={musicPlaying ? "Pausar nuestra canción" : "Reproducir nuestra canción"}
+        aria-pressed={musicPlaying}
       >
         <span className={styles.musicIcon}><Music2 size={15} /></span>
-        <span>Escuchar canción ↗</span>
-      </a>
+        <span>{musicPlaying ? "Pausar canción" : musicPlayFailed ? "Tocar para escuchar" : "Reproducir canción"}</span>
+      </button>
 
       <aside className={`${styles.chapterHud} ${opened ? styles.chapterHudVisible : ""}`} aria-hidden>
         <span>{String(activeChapter + 1).padStart(2, "0")}</span>
