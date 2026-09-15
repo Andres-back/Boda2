@@ -10,8 +10,6 @@ import {
   ChevronRight,
   Menu,
   Music2,
-  Volume2,
-  VolumeX,
   X,
 } from "lucide-react";
 import styles from "./WeddingInvitation.module.css";
@@ -27,7 +25,7 @@ export type WeddingInvitationProps = {
 };
 
 type Countdown = { days: number; hours: number; minutes: number; seconds: number };
-const WEDDING_SONG_ID = "OztF4T5FSnQ";
+const WEDDING_SONG_ID = "Hi31PDV4YhA";
 
 const chapters = [
   "Nuestro día",
@@ -68,9 +66,7 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
   const root = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLElement>(null);
   const menuRef = useRef<HTMLButtonElement>(null);
-  const musicFrame = useRef<HTMLIFrameElement>(null);
   const [opened, setOpened] = useState(false);
-  const [musicPlaying, setMusicPlaying] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
     if (!menuOpen) return;
@@ -185,26 +181,9 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
   }, [lightbox]);
 
 
-  const sendMusicCommand = (command: "playVideo" | "pauseVideo") => {
-    musicFrame.current?.contentWindow?.postMessage(
-      JSON.stringify({ event: "command", func: command, args: [] }),
-      "https://www.youtube-nocookie.com"
-    );
-  };
-
   const openInvitation = () => {
     setOpened(true);
-    setMusicPlaying(true);
-    sendMusicCommand("playVideo");
     window.requestAnimationFrame(() => window.scrollTo(0, 0));
-  };
-
-  const toggleMusic = () => {
-    setMusicPlaying((current) => {
-      const next = !current;
-      sendMusicCommand(next ? "playVideo" : "pauseVideo");
-      return next;
-    });
   };
 
   const closeMenu = () => setMenuOpen(false);
@@ -230,7 +209,7 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
           <button type="button" className={styles.primaryButton} onClick={openInvitation}>
             Abrir invitación
           </button>
-          <p className={styles.entranceDate}>{details.numericDate} &nbsp;—&nbsp; {event.ciudad}</p>
+          <p className={styles.entranceDate}>{details.date} · {details.ceremonyTime} · {event.ciudad}</p>
         </div>
       </div>
 
@@ -256,28 +235,16 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
         </button>
       </nav>
 
-      <iframe
-        ref={musicFrame}
-        className={styles.musicFrame}
-        src={`https://www.youtube-nocookie.com/embed/${WEDDING_SONG_ID}?enablejsapi=1&autoplay=0&controls=0&loop=1&playlist=${WEDDING_SONG_ID}&playsinline=1&rel=0`}
-        title="Canción de Jans y Yurleydi"
-        allow="autoplay; encrypted-media"
-        referrerPolicy="strict-origin-when-cross-origin"
-        onLoad={() => {
-          if (opened && musicPlaying) sendMusicCommand("playVideo");
-        }}
-      />
-      <button
-        type="button"
-        className={`${styles.musicControl} ${opened ? styles.musicControlVisible : ""} ${musicPlaying ? styles.musicControlPlaying : ""}`}
-        onClick={toggleMusic}
-        aria-label={musicPlaying ? "Pausar nuestra canción" : "Reproducir nuestra canción"}
-        aria-pressed={musicPlaying}
+      <a
+        className={`${styles.musicControl} ${opened ? styles.musicControlVisible : ""}`}
+        href={`https://www.youtube.com/watch?v=${WEDDING_SONG_ID}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Escuchar nuestra canción en YouTube (abre una pestaña nueva)"
       >
         <span className={styles.musicIcon}><Music2 size={15} /></span>
-        <span>Nuestra canción</span>
-        {musicPlaying ? <Volume2 size={15} /> : <VolumeX size={15} />}
-      </button>
+        <span>Escuchar canción ↗</span>
+      </a>
 
       <aside className={`${styles.chapterHud} ${opened ? styles.chapterHudVisible : ""}`} aria-hidden>
         <span>{String(activeChapter + 1).padStart(2, "0")}</span>
@@ -299,6 +266,7 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
               Yurleydi <small>Solarte</small>
             </h2>
             <p data-hero-line className={styles.heroDate}>{details.date}</p>
+            <p data-hero-line className={styles.heroTime}>Ceremonia a las {details.ceremonyTime}</p>
             <p data-hero-line className={styles.heroQuote}>“Lo que Dios ha unido, que no lo separe el hombre.” <strong>Marcos 10:9</strong></p>
             {isAdmin ? <a data-hero-line className={styles.outlineButton} href="#historia">Nuestra historia</a> : <Link data-hero-line className={styles.outlineButton} href={ctaHref}>{ctaLabel}</Link>}
           </div>
@@ -324,6 +292,9 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
               <h2 className={styles.sectionTitle}>Cada vez <em>más cerca</em></h2>
               <p className={styles.sectionCopy}>El {details.shortDate} comenzará un nuevo capítulo. Nos hará muy felices vivirlo contigo.</p>
             </header>
+            <div className={styles.dateFeature} data-reveal>
+              <strong>{details.calendarDate}</strong><span>Ceremonia a las {details.ceremonyTime}</span>
+            </div>
             <Image className={styles.sectionDivider} src="/wedding/generated-divider.png" alt="" width={2172} height={724} />
             <div className={styles.countdown} data-reveal>
               {countdownItems.map(([value, label]) => (
