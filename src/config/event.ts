@@ -3,7 +3,7 @@ export const EVENT_CONFIG = {
   shortName: "Jans & Yurleydi",
   slogan: "Unidos bajo la gracia de Dios",
   biblicalReference: "Marcos 10:9",
-  startDate: "2026-10-11T18:00:00-05:00",
+  startDate: "2026-10-11T17:00:00-05:00",
   endDate: "2026-10-11T23:59:00-05:00",
   displayDate: "11 de octubre de 2026",
   venue: "Iglesia Pentecostal Unida de Colombia · Sede 4",
@@ -43,5 +43,5 @@ export const EVENT_JSON_LD = {
     },
   },
   image: [EVENT_CONFIG.wallpaper, EVENT_CONFIG.poster],
-  description: "Invitación a la boda de Jans Narvaez y Yurleydi Solarte, el 11 de octubre de 2026 a las 6:00 p. m. en Mocoa, Putumayo.",
+  description: "Invitación a la boda de Jans Narvaez y Yurleydi Solarte, el 11 de octubre de 2026 a las 5:00 p. m. en Mocoa, Putumayo.",
 };

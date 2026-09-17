@@ -1,6 +1,6 @@
 # Boda de Jans Narvaez y Yurleydi Solarte
 
-Invitación digital y plataforma operativa para la boda del 11 de octubre de 2026, a las 6:00 p. m., en la Iglesia Pentecostal Unida de Colombia, sede 4, barrio San Agustín, Mocoa. Incluye una portada cinematográfica en tonos lila y la gestión privada de confirmaciones, invitados, mesas, sillas, pases QR e ingreso.
+Invitación digital y plataforma operativa para la boda del 11 de octubre de 2026, a las 5:00 p. m., en la Iglesia Pentecostal Unida de Colombia, sede 4, barrio San Agustín, Mocoa. Incluye una portada cinematográfica en tonos lila y la gestión privada de confirmaciones, invitados, mesas, sillas, pases QR e ingreso.
 
 ## Funcionalidad integrada
 

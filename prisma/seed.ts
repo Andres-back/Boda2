@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 
 const WEDDING_CONFIG = {
   name: "Boda de Jans Narvaez y Yurleydi Solarte",
-  startDate: process.env.EVENT_DATE ?? "2026-10-11T18:00:00-05:00",
+  startDate: process.env.EVENT_DATE ?? "2026-10-11T17:00:00-05:00",
   venue: "Iglesia Pentecostal Unida de Colombia · Sede 4",
   address: "Barrio San Agustín",
   city: "Mocoa, Putumayo",
@@ -63,7 +63,7 @@ async function main() {
   const weddingDefaults = {
     nombre: WEDDING_CONFIG.name,
     fecha: new Date(WEDDING_CONFIG.startDate),
-    puertas: "6:00 p. m.",
+    puertas: "5:00 p. m.",
     horaRecepcion: "19:30",
     lugar: WEDDING_CONFIG.venue,
     barrio: WEDDING_CONFIG.address,

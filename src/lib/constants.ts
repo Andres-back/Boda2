@@ -61,7 +61,7 @@ export async function getConfiguracion(): Promise<ConfiguracionData> {
     id: "singleton",
     nombre: EVENT_CONFIG.name,
     fecha: new Date(EVENT_CONFIG.startDate),
-    puertas: "6:00 p. m.",
+    puertas: "5:00 p. m.",
     horaRecepcion: "19:30",
     lugar: EVENT_CONFIG.venue,
     barrio: EVENT_CONFIG.address,

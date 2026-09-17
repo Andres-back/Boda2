@@ -25,7 +25,7 @@ export default async function ReservarPage({ searchParams }: { searchParams: Pro
       <div className="relative mx-auto w-full max-w-2xl">
         <Link href="/" className="mx-auto mb-7 flex w-fit items-center gap-2 font-display text-2xl text-[#5b3f6d]">J <span className="font-[var(--font-parisienne)] text-[#7b52a0]">&</span> Y</Link>
         <header className="mb-7 text-center">
-          <p className="text-[10px] font-semibold uppercase tracking-[.3em] text-[#7b52a0]">11 · 10 · 2026 · 6:00 p. m.</p>
+          <p className="text-[10px] font-semibold uppercase tracking-[.3em] text-[#7b52a0]">11 · 10 · 2026 · 5:00 p. m.</p>
           <h1 className="mt-2 font-display text-5xl leading-none text-[#3f2d4b] md:text-6xl">Confirma tu asistencia</h1>
           <p className="mx-auto mt-4 max-w-lg text-sm leading-6 text-[#75667d]">Registra a quienes te acompañarán. Cada persona recibirá un código individual para el ingreso y podrá tener su lugar en mesa.</p>
         </header>

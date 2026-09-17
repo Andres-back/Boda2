@@ -169,7 +169,7 @@ def draw_details(c: canvas.Canvas) -> None:
     c.drawCentredString(W / 2, 226, "Domingo, 11 de octubre de 2026")
     c.setFillColor(GOLD)
     c.setFont("GeorgiaBold", 8)
-    c.drawCentredString(W / 2, 207, "6:00 P. M.")
+    c.drawCentredString(W / 2, 207, "5:00 P. M.")
 
     location_style = ParagraphStyle(
         "location",

@@ -237,14 +237,13 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
           <a href="#historia">Nuestra historia</a>
           <a href="#momentos">Momentos</a>
           <a href="#fecha">Fecha</a>
-          {!isAdmin && <Link className={styles.navCta} href={ctaHref}>Confirmar</Link>}
         </div>
         <div id="wedding-menu" className={`${styles.navLinks} ${menuOpen ? styles.navLinksOpen : ""}`}>
           <a href="#inicio" onClick={closeMenu}>Inicio</a>
           <a href="#historia" onClick={closeMenu}>Nuestra historia</a>
           <a href="#momentos" onClick={closeMenu}>Momentos</a>
           <a href="#fecha" onClick={closeMenu}>Fecha</a>
-          <Link className={styles.navCta} href={ctaHref} onClick={closeMenu}>{ctaLabel}</Link>
+          {isAdmin && <Link className={styles.navCta} href={ctaHref} onClick={closeMenu}>{ctaLabel}</Link>}
           {!isLoggedIn && <Link href="/login" onClick={closeMenu}>Iniciar sesión</Link>}
           {isLoggedIn && <form action="/logout" method="POST"><button type="submit">Salir</button></form>}
         </div>
@@ -295,7 +294,6 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
             <p data-hero-line className={styles.heroDate}>{details.date}</p>
             <p data-hero-line className={styles.heroTime}>Ceremonia a las {details.ceremonyTime}</p>
             <p data-hero-line className={styles.heroQuote}>“Lo que Dios ha unido, que no lo separe el hombre.” <strong>Marcos 10:9</strong></p>
-            {isAdmin ? <a data-hero-line className={styles.outlineButton} href="#historia">Nuestra historia</a> : <Link data-hero-line className={styles.outlineButton} href={ctaHref}>{ctaLabel}</Link>}
           </div>
           <a className={styles.scrollCue} href="#promesa" aria-label="Continuar hacia nuestra historia"><span /></a>
         </section>
@@ -414,6 +412,17 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
           </div>
         </section>
 
+        <section className={styles.gifts}>
+          <div className={styles.giftComposition}>
+            <Image className={styles.giftArt} src="/wedding/generated-gifts.png" alt="" width={1024} height={1536} />
+            <div className={styles.giftCard} data-reveal>
+              <p className={styles.eyebrow}>Un detalle desde el corazón</p>
+              <h2>Tu presencia es nuestra mayor alegría</h2>
+              <p>Si deseas bendecir nuestro nuevo hogar, recibiremos con gratitud lo que Dios ponga en tu corazón.</p>
+            </div>
+          </div>
+
+        </section>
         <section id="confirmar" className={styles.rsvp} data-chapter>
           <Image className={styles.rsvpFloral} src="/wedding/generated-botanical.png" alt="" width={520} height={520} />
           <Image className={styles.rsvpPetals} src="/wedding/generated-petals.png" alt="" width={1536} height={1024} />
@@ -423,17 +432,6 @@ export function WeddingInvitation({ ctaHref, ctaLabel, event, isAdmin, isLoggedI
             <p>Ayúdanos a preparar cada lugar con amor. Podrás registrar a las personas que te acompañarán y consultar después tu mesa y acceso.</p>
             {!isAdmin && <Link className={styles.primaryButton} href={ctaHref}>{ctaLabel}</Link>}
             <p className={styles.rsvpHelp}>Si tienes alguna duda, comunícate directamente con los novios.</p>
-          </div>
-        </section>
-
-        <section className={styles.gifts}>
-          <div className={styles.giftComposition}>
-            <Image className={styles.giftArt} src="/wedding/generated-gifts.png" alt="" width={1024} height={1536} />
-            <div className={styles.giftCard} data-reveal>
-              <p className={styles.eyebrow}>Un detalle desde el corazón</p>
-              <h2>Tu presencia es nuestra mayor alegría</h2>
-              <p>Si deseas bendecir nuestro nuevo hogar, recibiremos con gratitud lo que Dios ponga en tu corazón.</p>
-            </div>
           </div>
         </section>
       </main>

@@ -112,7 +112,7 @@ async function descargarPase({ numero, nombreCompleto, telefono, codigo, mesaNum
   context.fillText("Jans & Yurleydi", width / 2, 170);
   context.fillStyle = "#75667d";
   context.font = "bold 15px Arial, sans-serif";
-  context.fillText("11 DE OCTUBRE DE 2026 · 6:00 P. M. · MOCOA", width / 2, 210);
+  context.fillText("11 DE OCTUBRE DE 2026 · 5:00 P. M. · MOCOA", width / 2, 210);
 
   context.fillStyle = "#9a68b3";
   context.font = "bold 15px Arial, sans-serif";

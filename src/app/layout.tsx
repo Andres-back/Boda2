@@ -35,7 +35,7 @@ const specialElite = Special_Elite({
 
 export const metadata: Metadata = {
   title: "Jans Narvaez & Yurleydi Solarte | Nuestra boda",
-  description: "Acompáñanos a celebrar nuestra boda el 11 de octubre de 2026 a las 6:00 p. m. en Mocoa, Putumayo.",
+  description: "Acompáñanos a celebrar nuestra boda el 11 de octubre de 2026 a las 5:00 p. m. en Mocoa, Putumayo.",
   applicationName: "Jans & Yurleydi",
 };
 
